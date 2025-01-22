@@ -7,10 +7,15 @@ btn.addEventListener("click", () => {
   xhr.open("GET", "https://dog.ceo/api/breeds/image/random");
   xhr.send();
   xhr.responseType = "json";
-  xhr.addEventListener("load", () => {
-    // console.log(JSON.parse(xhr.response)); // response ko object mai change krne ke liye
+  // xhr.addEventListener("load", () => {
+  //   // console.log(JSON.parse(xhr.response)); // response ko object mai change krne ke liye
 
+  //   img.src = xhr.response.message;
+  //   console.log(xhr.response.message);
+  // });
+
+  xhr.onload = () => {
     img.src = xhr.response.message;
     console.log(xhr.response.message);
-  });
+  };
 });
